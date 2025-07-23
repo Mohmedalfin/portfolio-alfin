@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.humburger-line {
+    @apply w-[30px] h-[2px] my-2 block bg-dark;
+}
+
+.navbar-fixed {
+        @apply fixed z-[999] bg-white bg-opacity-80;
+        backdrop-filter: blur(5px);
+        box-shadow: inset 0 -1px 0 0 rgb(0, 0, 0, 0.1);
+}
+
+@layer components {
+    .humburger-line {
+        @apply w-[30px] h-[2px] my-2 block bg-dark transition-all duration-300;
+    }
+    
+    .hamburger-active .humburger-line:nth-child(1) {
+        @apply origin-top-left rotate-45;
+    }
+    
+    .hamburger-active .humburger-line:nth-child(2) {
+        @apply scale-0;
+    }
+    
+    .hamburger-active .humburger-line:nth-child(3) {
+        @apply origin-bottom-left -rotate-45;
+    }
+}
