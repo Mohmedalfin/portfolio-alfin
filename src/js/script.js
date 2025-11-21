@@ -31,14 +31,40 @@ window.addEventListener('click', function(e){
     }
 })
 
-// Dark mode toggle
+// Definisi elemen
 const darkToggle = document.querySelector('#dark-toggle');
 const html = document.querySelector('html');
 
-darkToggle.addEventListener('click', function() {
-   if(darkToggle.checked){
+// --- 1. Cek Posisi Awal (Default Dark) ---
+// Logika: Jika di LocalStorage ada 'dark' ATAU belum ada settingan sama sekali (pengunjung baru)
+if (localStorage.theme === 'dark' || (!('theme' in localStorage))) {
     html.classList.add('dark');
-   }else{
+    darkToggle.checked = true; // Ubah toggle menjadi "nyala"
+} else {
     html.classList.remove('dark');
-   }
-})
+    darkToggle.checked = false;
+}
+
+// --- 2. Event Listener saat tombol diklik ---
+darkToggle.addEventListener('click', function() {
+    if (darkToggle.checked) {
+        html.classList.add('dark');
+        localStorage.theme = 'dark'; // Simpan ke memori browser
+    } else {
+        html.classList.remove('dark');
+        localStorage.theme = 'light'; // Simpan ke memori browser
+    }
+});
+
+
+var typed = new Typed('#typewriter', {
+      // Masukkan kata-kata yang ingin ditampilkan di sini
+      strings: ['M. Alfin Maulana', 'Tech Enthusiast', 'Lifelong Learner'], 
+      
+      typeSpeed: 100, // Kecepatan mengetik (makin kecil makin cepat)
+      backSpeed: 50,  // Kecepatan menghapus (backspace)
+      backDelay: 2000, // Jeda sebelum menghapus teks (2 detik)
+      startDelay: 500, // Jeda sebelum mulai mengetik awal
+      loop: true,     // Mengulang terus menerus
+      showCursor: true, // Menampilkan kursor berkedip '|'
+ });

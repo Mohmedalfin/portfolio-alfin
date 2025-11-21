@@ -1,14 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{html,js,ts,jsx,tsx,vue,svelte}"
-  ],
+  content: ['./index.html', './src/**/*.{html,js,ts,jsx,tsx,vue,svelte}'],
   darkMode: 'class',
   theme: {
     container: {
       center: true,
-      padding: '30px',
+      padding: '100px',
     },
     extend: {
       colors: {
@@ -16,12 +13,12 @@ export default {
         dark: '#0f172a',
       },
       scale: {
-        '115': '1.15',
+        115: '1.15',
       },
       screens: {
         '2xl': '1320px',
       },
-    }
+    },
   },
   plugins: [],
-}
+};
